@@ -1,10 +1,10 @@
 package com.example.tp_flashcard.ui
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.navArgument
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import com.example.tp_flashcard.ui.home.HomeScreen
 import com.example.tp_flashcard.ui.home.HomeViewModel
@@ -18,7 +18,6 @@ fun AppNavHost(homeViewModel: HomeViewModel) {
         navController = navController,
         startDestination = "home"
     ) {
-        // Écran d’accueil
         composable("home") {
             HomeScreen(
                 homeViewModel = homeViewModel,
@@ -28,7 +27,6 @@ fun AppNavHost(homeViewModel: HomeViewModel) {
             )
         }
 
-        // Écran de révision
         composable(
             route = "flashcard/{categoryId}",
             arguments = listOf(
